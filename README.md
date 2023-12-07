@@ -124,10 +124,15 @@ Hörnen numreras från 1 och uppåt. Om man angett a hörn i X och b hörn i Y s
 Exempel: En graf kan till exempel kodas så här.
 
 2 3
+
 4
+
 1 3
+
 1 4
+
 2 3
+
 2 5
 
 Denna graf har alltså X = {1, 2} och Y = {3, 4, 5}. Kantmängden E innehåller kanterna (1, 3), (1, 4), (2, 3) och (2, 5).
@@ -139,8 +144,11 @@ Först skrivs en rad som är densamma som den första i indata, och därefter en
 Exempel: Om vi har grafen ovan som indata så kan utdata se ut så här.
 
 2 3
+
 2
+
 1 3
+
 2 5
 
 Flödesproblemet
@@ -152,12 +160,19 @@ Ford-Fulkersons algoritm i pseudokod
 c[u,v] är kapaciteten från u till v, f[u,v] är flödet, cf[u,v] är restkapaciteten.
 
 for varje kant (u,v) i grafen do 
+
     f[u,v]:=0; f[v,u]:=0 
+    
     cf[u,v]:=c[u,v]; cf[v,u]:=c[v,u] 
+    
 while det finns en stig p från s till t i restflödesgrafen do 
+
     r:=min(cf[u,v]: (u,v) ingår i p) 
+    
     for varje kant (u,v) i p do 
+    
          f[u,v]:=f[u,v]+r; f[v,u]:= -f[u,v] 
+         
          cf[u,v]:=c[u,v] - f[u,v]; cf[v,u]:=c[v,u] - f[v,u]
 
 Indata
@@ -172,12 +187,19 @@ Hörnen numreras från 1 och uppåt. Om man angett a hörn i V så låter vi V =
 Exempel: En graf kan till exempel kodas så här.
 
 4
+
 1 4
+
 5
+
 1 2 1
+
 1 3 2
+
 2 4 2
+
 3 2 2
+
 3 4 1
 
 Utdata
@@ -190,12 +212,19 @@ Därefter skrivs en rad för varje sådan kant. Kanten beskrivs av tre tal på l
 Exempel: Om vi har grafen ovan som indata så kan utdata se ut så här.
 
 4
+
 1 4 3
+
 5
+
 1 2 1
+
 1 3 2
+
 2 4 2
+
 3 2 1
+
 3 4 1
 
 **Lab4**:
@@ -221,34 +250,59 @@ Exempel på godkända indata
 nej-instans:
 
 5
+
 5 
+
 3
+
 3 1 2 3
+
 2 2 3
+
 2 1 3
+
 1 2
+
 3 1 2 3
+
 2 1 2
+
 2 1 2
+
 3 1 3 4
+
 2 3 5
+
 3 2 3 5
 
       	ja-instans:
        
 6
+
 5
+
 4
+
 3 1 3 4
+
 2 2 3
+
 2 1 3
+
 1 2
+
 4 1 2 3 4
+
 2 1 4
+
 3 1 2 6
+
 3 2 3 5
+
 3 2 4 6
+
 3 2 3 6
+
 2 1 6 
 
 Uppgift
@@ -276,9 +330,13 @@ Fråga: Kan hörnen i grafen färgas med högst m färger så att inga grannar h
 Indataformat: 
 
 Rad ett: tal V (antal hörn, tex:\displaystyle 1 \leq V \leq 300) 
+
 Rad två: tal E (antal kanter, tex:\displaystyle 0\le E\le 25000) 
-Rad tre: mål m (max antal färger, tex:\displaystyle 1\le m\le 2^{30}) 
+
+Rad tre: mål m (max antal färger, tex:\displaystyle 1\le m\le 2^{30})
+
 En rad för varje kant (E stycken) med kantens ändpunkter (hörnen numreras från 1 till V)
+
 
 Hamiltonsk cykel
 
@@ -289,7 +347,9 @@ Fråga: Finns det en tur längs kanter i grafen som börjar och slutar på samma
 Indataformat: 
 
 Rad ett: tal V (antal hörn, tex:\displaystyle 1\le V\le 200) 
+
 Rad två: tal E (antal kanter tex:\displaystyle 0\le E\le 5000) 
+
 En rad för varje kant (E stycken) med kantens starthörn och sluthörn (hörnen numreras från 1 till V)
 
 **Lab5**:
@@ -299,6 +359,7 @@ Du ska välja att implementera valfri heuristik som löser konstruktionsprobleme
 Utdataformat: 
 
 Rad ett: antal skådespelare som fått roller 
+
 En rad för varje skådespelare (som fått roller) med skådespelarens nummer, antalet roller skådespelaren tilldelats samt numren på dessa roller
 
 Problemet ska lösas enligt villkoren som specificerats för rollbesättningsproblemet, dvs divorna måste vara med men får inte mötas, ingen roll får spelas av flera personer, och ingen skådespelare får spela mot sig själv i någon scen. Bättre heuristik (dvs färre skådespelare) ger bättre betyg. Endast lösbara instanser kommer att ges som indata, men för att heuristiken i polynomisk tid säkert ska kunna hitta en lösning så är det tillåtet att använda högst n-1 särskilda superskådisar med nummer k+1, k+2, ... Varje superskådis kan spela vilken roll som helst, men kan bara spela en enda roll.
