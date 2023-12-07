@@ -1,0 +1,140 @@
+**Uppgift 1 Billig numrering av hörn i en graf**
+
+Betygskriterium: utveckla algoritmer med datastrukturer för enkla problem givet en konstruktionsmetod.
+
+Indata till problemet är en graf 
+G
+ med hörnmängd 
+V
+ och kantmängd 
+E
+. (
+G
+ har minst ett hörn.)
+Problemet är att numrera hörnen med talen 
+1
+,
+2
+,
+3
+,
+…
+,
+|
+V
+|
+.
+Denna numrering ska beskrivas av en bijektiv funktion 
+f
+:
+V
+⟶
+{
+1
+,
+2
+,
+3
+,
+…
+,
+|
+V
+|
+}
+, som alltså utgör utdata.
+Numreringen ska vara sådan att summan av alla 
+|
+f
+(
+u
+)
+−
+f
+(
+v
+)
+|
+, där 
+(
+u
+,
+v
+)
+∈
+E
+, blir så liten som möjligt.
+Det här problemet kan lösas effektivt för vissa typer av grafer, men verkar svårt för en allmän graf. Du ska därför konstruera en algoritm som använder totalsökning.
+Beskriv din algoritm med pseudokod och beräkna tidskomplexiteten (gör en tight analys som du anger med ordoklass/thetaklass).
+Något korrekthetsbevis för din pseudokod behövs inte i denna uppgift, men du ska redogöra för vad som skulle behöva visas i ett korrekthetsbevis.
+Du bestämmer själv hur indata och utdata ska representeras.
+
+**Uppgift 2 Pyramider i pyramider**
+
+Betygskriterium: utveckla algoritmer med datastrukturer för icketriviala problem.
+
+En rät pyramid är en geometrisk kropp som består av fyra likbenta trianglar som sidor på en kvadratisk bottenyta. Pyramidens storlek bestäms av två mått, bottenytans sida 
+s
+ och pyramidens höjd 
+h
+, se figuren.
+                                                                          Pyramid med sida s och höjd h.
+
+Du känner nog till att formeln för pyramidens volym är 
+s
+2
+h
+3
+. I denna uppgift tänker vi oss att varje pyramid bara består av ett tunt skal som utgörs av pyramidens fyra sidor. Pyramiden är öppen undertill och har inget innehåll. Detta gör att det går att sätta två pyramider (dvs pyramidskal) över varandra om det ena skalet är strikt större (både högre och bredare) än det andra. Den mindre pyramiden täcks då helt av den större. 
+
+Problemet är att givet 
+n
+ stycken pyramider avgöra hur många av dessa som maximalt kan placeras över varandra på ovanstående sätt så att varje pyramid täcks helt av närmast större pyramid. Pyramiderna ska staplas i en rak kedja ovanpå varandra.
+
+Indata till detta problem är 
+n
+ stycken pyramider 
+p
+1
+,
+p
+2
+,
+…
+,
+p
+n
+ som var och en är beskrivna av ett par av två heltal 
+(
+p
+i
+.
+s
+,
+p
+i
+.
+h
+)
+ där 
+p
+i
+.
+s
+ är sidans längd och 
+p
+i
+.
+h
+ är pyramidens höjd. 
+n
+≠
+0
+.
+
+Utdata är maximala antalet pyramider som kan placeras över varandra.
+
+Konstruera en effektiv algoritm för problemet. Använd pseudokod för att beskriva algoritmen. Analysera tidskomplexiteten (med enhetskostnad) som högst får vara kubisk. Motivera också att algoritmen är korrekt.
+
+Det är tillåtet att använda och hänvisa till en algoritm från kurslitteraturen (kursböckerna) i din lösning, om du gör tydligt varifrån algoritmen är hämtad och hur den anropas i din algoritm. Du behöver inte visa korrektheten för en hjälpalgoritm från kurslitteraturen.
+
